@@ -81,7 +81,6 @@ jobs:
           script: |
             set -euo pipefail
             APP_DIR=/opt/nextjs-app
-            # GHCR requires the image path to be lowercase.
             IMAGE=$(echo "ghcr.io/${{ github.repository }}:sha-${{ github.sha }}" | tr '[:upper:]' '[:lower:]')
 
             cd "$APP_DIR"

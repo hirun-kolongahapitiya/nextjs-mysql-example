@@ -1,0 +1,39 @@
+=== curl -I https://hirun.duckdns.org ===
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 12 May 2026 06:42:44 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 6100
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch, Accept-Encoding
+x-nextjs-cache: HIT
+Cache-Control: s-maxage=31536000, stale-while-revalidate
+ETag: "edk750du5s4p5"
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+X-XSS-Protection: 1; mode=block
+
+
+=== curl -I http://hirun.duckdns.org (proves HTTP redirect) ===
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.24.0 (Ubuntu)
+Date: Tue, 12 May 2026 06:42:45 GMT
+Content-Type: text/html
+Content-Length: 178
+Connection: keep-alive
+Location: https://hirun.duckdns.org/
+
+
+=== Gzip check ===
+Vary: Accept-Encoding
+Vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch, Accept-Encoding
+Content-Encoding: gzip
+
+=== TLS info ===
+subject=CN = hirun.duckdns.org
+issuer=C = US, O = Let's Encrypt, CN = E7
+notBefore=May 12 05:36:33 2026 GMT
+notAfter=Aug 10 05:36:32 2026 GMT

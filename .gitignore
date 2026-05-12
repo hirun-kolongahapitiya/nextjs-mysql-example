@@ -37,6 +37,8 @@ yarn-error.log*
 # Local compose overrides (do not deploy)
 docker-compose.override.yml
 docker-compose.*.local.yml
+secrets.local.txt
+*.local.txt
 
 # screenshots / test artifacts
 markdown/

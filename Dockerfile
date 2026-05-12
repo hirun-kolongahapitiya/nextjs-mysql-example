@@ -28,8 +28,6 @@ COPY --from=builder --chown=node:node /app/public ./public
 COPY --from=builder --chown=node:node /app/.next/standalone ./
 COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
-# Migrations are run on container start, so the runner needs the knexfile and
-# the dependencies the knex CLI uses (these live in the deps node_modules).
 COPY --from=builder --chown=node:node /app/database ./database
 COPY --from=builder --chown=node:node /app/knexfile.ts ./knexfile.ts
 COPY --from=builder --chown=node:node /app/tsconfig.json ./tsconfig.json
