@@ -1,0 +1,48 @@
+=== docker images ===
+REPOSITORY         TAG       SIZE      CREATED
+nextjs-mysql-app   latest    897MB     13 minutes ago
+nextjs-mysql-app   local     897MB     13 minutes ago
+
+=== docker compose ps ===
+NAME           IMAGE                     COMMAND                  SERVICE   CREATED              STATUS                        PORTS
+nextjs-app     nextjs-mysql-app:latest   "/usr/local/bin/entr…"   app       About a minute ago   Up About a minute (healthy)   127.0.0.1:3001->3000/tcp
+nextjs-mysql   mysql:8.0                 "docker-entrypoint.s…"   mysql     2 minutes ago        Up 2 minutes (healthy)        3306/tcp, 33060/tcp
+
+=== docker stats (single snapshot) ===
+NAME                 CPU %     MEM USAGE / LIMIT     NET I/O
+nextjs-app           0.02%     49.39MiB / 19.31GiB   333kB / 30.5kB
+nextjs-mysql         0.85%     363MiB / 19.31GiB     10.9kB / 14.3kB
+arb-bot-v3-bot-1     0.00%     33.34MiB / 19.31GiB   4.57MB / 1.46MB
+arb-bot-v3-redis-1   1.04%     7.441MiB / 19.31GiB   9.55kB / 126B
+arb-bot-v2-bot-1     0.06%     22.4MiB / 19.31GiB    27.3MB / 1.3MB
+arb-bot-v2-redis-1   0.97%     9.059MiB / 19.31GiB   9.55kB / 126B
+copybot-grafana      0.07%     181MiB / 19.31GiB     64kB / 23.1kB
+
+=== curl http://localhost:3001/ ===
+HTTP 200 (6100 bytes, 0.002638s)
+
+=== curl http://localhost:3001/api/users (count) ===
+11 users in DB
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "created_at": "2026-05-12T04:56:57.000Z",
+    "updated_at": "2026-05-12T04:56:57.000Z"
+  },
+  {
+    "id": 2,
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "created_at": "2026-05-12T04:56:57.000Z",
+    "updated_at": "2026-05-12T04:56:57.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Murtaja Ahmed",
+    "email": "murtaja@example.com",
+    "created_at": "2026-05-12T04:56:57.000Z",
+    "updated_at": "2026-05-12T04:56:57.000Z"
+  }
+]
